@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar"; // Import your Sidebar component
 
-const SidebarToggle = () => {
+const SidebarToggle = ({openModal}) => {
     // State to control sidebar visibility
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
@@ -17,7 +17,7 @@ const SidebarToggle = () => {
                 className="md:hidden p- text-black text-xl font-extrabold rounded fixed top-4 right-4 z-50"
                 onClick={toggleSidebar}
             >
-                <i class="ri-menu-fold-line"></i>
+                <i className="ri-menu-fold-line"></i>
                 {isSidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
             </button>
 
@@ -28,7 +28,7 @@ const SidebarToggle = () => {
           ${isSidebarVisible ? "translate-x-0" : "-translate-x-full"} 
           md:translate-x-0`}
             >
-                <Sidebar />
+                <Sidebar openModal={openModal} />
             </div>
 
             {/* Overlay (optional for better UX) */}
